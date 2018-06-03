@@ -68,7 +68,7 @@
                                         <input id="searchTerm" type="text" class="input is-rounded" placeholder="Filme/série para pesquisa">
                                     </p>
                                     <p class="control">
-                                                <a href="#" class="button is-warning is-rounded">
+                                                <a id="rlBtn" href="#" class="button is-warning is-rounded">
                                             <span class="icon">
                                                 <i id="btnSearch" class="fa fa-search"></i>
                                             </span>
@@ -76,26 +76,24 @@
                                     </p>
                                 </div>
                         </div>
-                        <div class="modal">
-                            <div class="modal-background"></div>
-                            <div class="modal-content">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <figure class="image is-2by1">
-                                            <img id="thumbImage" src="">
-                                        </figure>
-                                    </div>
-                                    <div class="card-content">
-                                        <h1 class="title is-4 has-text-black" id="infoName">Movie/serie name</h1>
-                                        <h2 class="subtitle is-6 has-text-black" id="infoDescrip">Description of movie/serie</h2>
-                                        <div class="content">
-                                            <p id="content"></p>
-                                        </div>
-                                    </div>
+                    </div>
+                    <div class="box" style="display: none;">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-64x64">
+                                    <img id="thumbImage" src="">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong id="infoName"></strong><br>
+                                        <small id="infoDescrip"></small><br>
+                                        <p id="content"></p>
+                                    </p>
                                 </div>
                             </div>
-                            <button class="modal-close is-large" aria-label="close"></button>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
