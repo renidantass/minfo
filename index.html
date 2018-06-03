@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minfo</title>
+    <link rel="shortcut icon" href="movies-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+</head>
+<body>
+
+    <!-- content -->
+    <section class="hero is-dark is-fullheight">
+        <div class="hero-head">
+            <header class="navbar is-dark" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <!-- navbar -->
+                    <div class="navbar-brand">
+                        <a href="#" class="navbar-item">
+                            Minfo
+                        </a>
+                        <a id="navToggler" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-menu" id="navMenu">
+                        <div class="navbar-start">
+                            <a href="index.html" class="navbar-item">Início</a>
+                        </div>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="field is-grouped">
+                                    <p class="control">
+                                            <a href="#!" class="button is-light is-rounded">
+                                                <span class="icon">
+                                                    <i class="fab fa-github"></i>
+                                                </span>
+                                                <span>GitHub</span>
+                                            </a>
+                                    </p>
+                                    <p class="control">
+                                        <a href="#!" class="button is-black is-rounded">
+                                            <span class="icon">
+                                                <i class="fas fa-hands-helping"></i>
+                                            </span>
+                                            <span>Apoie</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- navbar -->
+                </div>
+            </header>
+        </div>
+        <div class="hero-body">
+            <div class="container is-fullwidth has-text-centered">
+                <h1 class="title">A uma só pesquisa</h1>
+                <h2 class="subtitle">Conosco você conseguirá as informações que precisar em uma só pagina.</h2>
+                <div class="section">
+                    <div class="columns">
+                        <div class="column">
+                                <div class="field is-horizontal has-addons has-addons-centered">
+                                    <p class="control">
+                                        <input id="searchTerm" type="text" class="input is-rounded" placeholder="Filme/série para pesquisa">
+                                    </p>
+                                    <p class="control">
+                                                <a href="#" class="button is-warning is-rounded">
+                                            <span class="icon">
+                                                <i id="btnSearch" class="fa fa-search"></i>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+                        </div>
+                        <div class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <figure class="image is-2by1">
+                                            <img id="thumbImage" src="">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h1 class="title is-4 has-text-black" id="infoName">Movie/serie name</h1>
+                                        <h2 class="subtitle is-6 has-text-black" id="infoDescrip">Description of movie/serie</h2>
+                                        <div class="content">
+                                            <p id="content"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="modal-close is-large" aria-label="close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-foot">
+            <nav class="tabs is-boxed is-fullwidth">
+                <div class="container">
+                    <ul>
+                        <li class="is-active"><a href="#!" id="title-info">...</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- content -->
+    <script src="js/script.js"></script>
+</body>
+</html>
