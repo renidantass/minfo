@@ -18,7 +18,8 @@ function getMovie(term) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            var response = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+            // var response = JSON.parse(xhr.responseText);
             if (response.Title != undefined) {
                 document.getElementsByClassName('box')[0].style.display = 'block';
                 document.getElementById('thumbImage').src = response.Poster;
