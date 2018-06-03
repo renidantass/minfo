@@ -47,11 +47,11 @@ function toggleNav() {
 }
 
 // event listeners
-document.getElementById('btnSearch').addEventListener('mouseup', function() {
+document.getElementById('btnSearch').addEventListener('click', function() {
     getMovie(searchTerm.value);
 });
 
-toggler.addEventListener('mouseup', toggleNav);
+toggler.addEventListener('click', toggleNav);
 
 searchTerm.addEventListener('keypress', function(e) {
     if (e.keyCode == 13) {
