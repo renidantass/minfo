@@ -7,9 +7,30 @@ String.prototype.capitalize = function () {
 const toggler = document.getElementById('navToggler');
 const searchTerm = document.getElementById('searchTerm');
 
+
+function getTranslate(term, to) {
+    const apiKey = 'trnsl.1.1.20180119T231002Z.7f3861d36a1ace13.a12eeb16ed95a2ab4448f1bfc7b8e49c4da7b4bd';
+    term = term.replace(' ', '%20')
+
+
+    const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${apiKey}&text=${term}&lang=${to}&format=plain`;
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            var response = JSON.parse(xhr.responseText);
+            document.getElementById('content').innerHTML = response.text[0];
+            return response.text[0];
+        }
+    }
+
+    xhr.open('GET', url);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send();
+}
+
 function getMovie(term) {
     const apiKey = 'f449c41c';
-    term = term.replace(' ', '+');
+    term = term.replace(' ', '%20');
 
     const url = `https://www.omdbapi.com?apikey=${apiKey}&t=${term}`;
     const xhr =  new XMLHttpRequest();
@@ -25,7 +46,7 @@ function getMovie(term) {
                 document.getElementById('infoName').innerHTML = response.Title;
                 document.getElementById('title-info').innerHTML = 'Última pesquisa: ' + response.Title;
                 document.getElementById('infoDescrip').innerHTML = `Ano: ${response.Year}<br> Idade recomendada: ${response.Rated}`;
-                document.getElementById('content').innerHTML = response.Plot;
+                var translated = getTranslate(response.Plot, 'pt');
                 rlBtn.classList.toggle('is-loading');
             } else {
                 document.getElementById('title-info').innerHTML = 'Nenhum filme/série foi encontrado!';
