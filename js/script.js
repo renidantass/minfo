@@ -11,15 +11,14 @@ function getMovie(term) {
     const apiKey = 'f449c41c';
     term = term.replace(' ', '+');
 
-    const url = `http://www.omdbapi.com?apikey=${apiKey}&t=${term}`;
+    const url = `https://www.omdbapi.com?apikey=${apiKey}&t=${term}`;
     const xhr =  new XMLHttpRequest();
 
     var rlBtn = document.getElementById('rlBtn');
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(xhr.responseText);
-            // var response = JSON.parse(xhr.responseText);
+            var response = JSON.parse(xhr.responseText);
             if (response.Title != undefined) {
                 document.getElementsByClassName('box')[0].style.display = 'block';
                 document.getElementById('thumbImage').src = response.Poster;
