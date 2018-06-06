@@ -65,7 +65,7 @@ function getMovie(term) {
                 document.getElementsByClassName('box')[0].style.display = 'block';
                 document.getElementById('thumbImage').src = response.Poster;
                 document.getElementById('infoName').innerHTML = response.Title;
-                document.getElementById('infoDescrip').innerHTML = `Ano: ${response.Year}<br> Idade recomendada: ${response.Rated}`;
+                document.getElementById('infoDescrip').innerHTML = `<i class="fa fa-users"></i>: ${response.Actors}<br><i class="fa fa-calendar"></i> ${response.Year}<br><i class="fa fa-star"></i> ${response.imdbRating}`;
                 var translated = getTranslate(response.Plot, 'pt');
                 rlBtn.classList.toggle('is-loading');
             } else {
