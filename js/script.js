@@ -15,7 +15,7 @@ function loading(el) {
         var figure = document.createElement('figure');
         var imageLoading = document.createElement('img');
         div.className = 'columns is-centered'
-        otherDiv.className = 'column is-half';
+        otherDiv.className = 'column is-4';
         figure.className = 'image is-128x128 column';
         imageLoading.id = 'loadingImage';
         imageLoading.className = 'full-width';
