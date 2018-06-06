@@ -7,6 +7,26 @@ String.prototype.capitalize = function () {
 const toggler = document.getElementById('navToggler');
 const searchTerm = document.getElementById('searchTerm');
 
+function loading(el) {
+    var exists = document.getElementById('loadingImage');
+    if (!exists) {
+        var div = document.createElement('div');
+        var otherDiv = document.createElement('div');
+        var figure = document.createElement('figure');
+        var imageLoading = document.createElement('img');
+        div.className = 'columns is-centered'
+        otherDiv.className = 'column is-half';
+        figure.className = 'image is-128x128 column';
+        imageLoading.id = 'loadingImage';
+        imageLoading.className = 'full-width';
+        imageLoading.src = 'octo-loader.gif';
+        el.innerHTML = '';
+        div.appendChild(otherDiv);
+        otherDiv.appendChild(figure);
+        figure.appendChild(imageLoading)
+        el.appendChild(div);
+    }
+}
 
 function getTranslate(term, to) {
     const apiKey = 'trnsl.1.1.20180119T231002Z.7f3861d36a1ace13.a12eeb16ed95a2ab4448f1bfc7b8e49c4da7b4bd';
@@ -20,6 +40,8 @@ function getTranslate(term, to) {
             var response = JSON.parse(xhr.responseText);
             document.getElementById('content').innerHTML = response.text[0];
             return response.text[0];
+        } else {
+            loading(document.getElementById('content'));
         }
     }
 
@@ -31,7 +53,6 @@ function getTranslate(term, to) {
 function getMovie(term) {
     const apiKey = 'f449c41c';
     term = term.replace(' ', '%20');
-
     const url = `https://www.omdbapi.com?apikey=${apiKey}&t=${term}`;
     const xhr =  new XMLHttpRequest();
 
@@ -44,12 +65,10 @@ function getMovie(term) {
                 document.getElementsByClassName('box')[0].style.display = 'block';
                 document.getElementById('thumbImage').src = response.Poster;
                 document.getElementById('infoName').innerHTML = response.Title;
-                document.getElementById('title-info').innerHTML = 'Última pesquisa: ' + response.Title;
                 document.getElementById('infoDescrip').innerHTML = `Ano: ${response.Year}<br> Idade recomendada: ${response.Rated}`;
                 var translated = getTranslate(response.Plot, 'pt');
                 rlBtn.classList.toggle('is-loading');
             } else {
-                document.getElementById('title-info').innerHTML = 'Nenhum filme/série foi encontrado!';
                 rlBtn.classList.toggle('is-loading');
             }
         } else {
